@@ -3,8 +3,8 @@ import { Button } from "gogroup-ui";
 function App() {
   return (
     <>
-      <div>
-        <Button>Hello</Button>
+      <div className="flex">
+        <Button btnText="Hello" variant="secondary" />
       </div>
     </>
   );
