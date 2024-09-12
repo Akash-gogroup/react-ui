@@ -6,11 +6,15 @@ import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), tsconfigPaths(), dts({ rollupTypes: true })],
+  plugins: [react(), tsconfigPaths(), dts({
+    rollupTypes: true, 
+    include: ['src/**/*.ts', 'src/**/*.tsx'],
+    exclude: ['dist', 'node_modules'],
+  })],
   build: {
     // library entry and output settings
     lib: {
-      entry: resolve(__dirname, "lib/main.ts"),
+      entry: resolve(__dirname, "src/main.ts"),
       name: "gogroup-ui",
       fileName: "gogroup-ui",
     },

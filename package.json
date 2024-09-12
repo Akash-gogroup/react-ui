@@ -1,51 +1,72 @@
 {
-	"name": "gogroup-ui",
-	"private": false,
-	"version": "0.0.7",
-	"type": "module",
-	"files": [
-		"dist"
-	],
-	"main": "./dist/gogroup-ui.umd.cjs",
-	"module": "./dist/gogroup-ui.js",
-	"exports": {
-		".": {
-			"import": "./dist/gogroup-ui.js",
-			"require": "./dist/gogroup-ui.umd.cjs"
-		},
-		"./dist/style.css": "./dist/style.css"
-	},
-	"sideEffects": false,
-	"scripts": {
-		"dev": "vite",
-		"prebuild": "rm -rf dist",
-		"build": "tsc && vite build",
-		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-		"preview": "vite preview",
-		"prepublish": "npm run build"
-	},
-	"dependencies": {
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"vite-tsconfig-paths": "^4.3.1"
-	},
-	"devDependencies": {
-		"@types/react": "^18.2.55",
-		"@types/react-dom": "^18.2.19",
-		"@typescript-eslint/eslint-plugin": "^6.21.0",
-		"@typescript-eslint/parser": "^6.21.0",
-		"@vitejs/plugin-react": "^4.2.1",
-		"autoprefixer": "^10.4.19",
-		"class-variance-authority": "^0.7.0",
-		"clsx": "^2.1.1",
-		"eslint": "^8.56.0",
-		"eslint-plugin-react-hooks": "^4.6.0",
-		"eslint-plugin-react-refresh": "^0.4.5",
-		"react-feather": "^2.0.10",
-		"tailwind-merge": "^2.4.0",
-		"tailwindcss": "^3.4.7",
-		"typescript": "^5.2.2",
-		"vite": "^5.3.5",
-		"vite-plugin-dts": "^4.0.0-beta.2"
-	}
+  "name": "gogroup-ui",
+  "private": false,
+  "version": "0.0.9",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/gogroup-ui.umd.cjs",
+  "module": "./dist/gogroup-ui.js",
+  "exports": {
+    ".": {
+      "import": "./dist/gogroup-ui.js",
+      "require": "./dist/gogroup-ui.umd.cjs"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "rm -rf dist",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "prepublish": "npm run build",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^6.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "vite-tsconfig-paths": "^4.3.1"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^1.9.0",
+    "@storybook/addon-essentials": "^8.2.9",
+    "@storybook/addon-interactions": "^8.2.9",
+    "@storybook/addon-links": "^8.2.9",
+    "@storybook/addon-onboarding": "^8.2.9",
+    "@storybook/blocks": "^8.2.9",
+    "@storybook/react": "^8.2.9",
+    "@storybook/react-vite": "^8.2.9",
+    "@storybook/test": "^8.2.9",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.19",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint-plugin-storybook": "^0.8.0",
+    "react-feather": "^2.0.10",
+    "storybook": "^8.2.9",
+    "tailwind-merge": "^2.4.0",
+    "tailwindcss": "^3.4.7",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.4",
+    "vite-plugin-dts": "^4.2.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
+  }
 }
