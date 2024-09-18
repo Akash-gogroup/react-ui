@@ -1,42 +1,33 @@
-// src/components/CustomButton.tsx
-import React from 'react';
-import { Button as MUIButton, ButtonProps, ThemeProvider } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
-
-// Define your theme within the button component
-export const buttonTheme = createTheme({
-  components: {
-    MuiButton: {
-      defaultProps: {
-        disableRipple: true,
-      },
-      styleOverrides: {
-      },
-    },
-  },
-});
+import React from "react";
+import {
+  Button as MUIButton,
+  ButtonProps,
+  ThemeProvider,
+  Theme,
+} from "@mui/material";
+import { getTheme } from "../themes/themeHandler";
 
 export interface IButtonProps extends ButtonProps {
-  color?: 'primary' | 'secondary' | 'success' | 'error';
-  variant?: 'contained' | 'outlined' | 'text';
-  size?: 'small' | 'medium' | 'large';
+  color?: "primary" | "secondary" | "success" | "error";
+  variant?: "contained" | "outlined" | "text";
+  size?: "small" | "medium" | "large";
+  theme?: Theme; // Allow consumers to provide their own theme
 }
 
 export const Button: React.FC<IButtonProps> = ({
   children,
-  color = 'primary',
-  variant = 'contained',
-  size = 'medium',
+  color = "primary",
+  variant = "contained",
+  size = "medium",
+  theme,
   ...props
-}) => (
-  <ThemeProvider theme={buttonTheme}>
-    <MUIButton
-      color={color}
-      variant={variant}
-      size={size}
-      {...props}
-    >
-      {children}
-    </MUIButton>
-  </ThemeProvider>
-);
+}) => {
+  const appliedTheme = getTheme(theme);
+  return (
+    <ThemeProvider theme={appliedTheme}>
+      <MUIButton color={color} variant={variant} size={size} {...props}>
+        {children}
+      </MUIButton>
+    </ThemeProvider>
+  );
+};
