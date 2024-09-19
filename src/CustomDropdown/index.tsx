@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Checkbox, MenuItem, Select, FormControl, InputLabel, ListItemText, SelectChangeEvent, OutlinedInput } from "@mui/material";
+import {
+  Checkbox,
+  MenuItem,
+  Select,
+  FormControl,
+  InputLabel,
+  ListItemText,
+  SelectChangeEvent,
+  OutlinedInput,
+} from "@mui/material";
 
 // Define props type
 interface DropdownWithCheckboxProps {
@@ -8,7 +17,11 @@ interface DropdownWithCheckboxProps {
   label?: string;
 }
 
-export const DropdownWithCheckbox: React.FC<DropdownWithCheckboxProps> = ({ options, onSelectionChange, label='Select' }) => {
+export const DropdownWithCheckbox: React.FC<DropdownWithCheckboxProps> = ({
+  options,
+  onSelectionChange,
+  label = "Select",
+}) => {
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
   useEffect(() => {
@@ -33,7 +46,7 @@ export const DropdownWithCheckbox: React.FC<DropdownWithCheckboxProps> = ({ opti
   return (
     <div>
       <FormControl sx={{ m: 1, width: 300 }}>
-      <InputLabel id="demo-multiple-checkbox-label">{label}</InputLabel>
+        <InputLabel id="demo-multiple-checkbox-label">{label}</InputLabel>
         <Select
           labelId="demo-multiple-checkbox-label"
           id="demo-multiple-checkbox"
@@ -47,7 +60,10 @@ export const DropdownWithCheckbox: React.FC<DropdownWithCheckboxProps> = ({ opti
           <MenuItem value="selectAll">
             <Checkbox
               checked={selectedItems.length === options.length}
-              indeterminate={selectedItems.length > 0 && selectedItems.length < options.length}
+              indeterminate={
+                selectedItems.length > 0 &&
+                selectedItems.length < options.length
+              }
             />
             <ListItemText primary="Select All" />
           </MenuItem>
